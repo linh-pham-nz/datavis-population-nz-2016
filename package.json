@@ -1,7 +1,7 @@
 {
   "name": "d3-webpack-babel-template",
   "version": "1.0.0",
-  "description": "\"Template for using D3, webpack, and babel\"",
+  "description": "Template for using D3, webpack, and babel",
   "main": "index.js",
   "scripts": {
     "build": "babel src -d lib",
