@@ -15,21 +15,22 @@ const render = data => {
     const xScale = scaleBand()
         .domain(data.map(xValue))
         .range([0, innerWidth])
-        
+        .padding(0.1)
+
     const yScale = scaleLinear()
         .domain([0, max(data, yValue)])
         .range([0, innerHeight])
-    
+
     const g = svg.append('g')
         .attr('transform', `translate(${margin.left}, ${margin.top})`)
-    
-  	g.selectAll('rect').data(data)
-  	.enter()
-    .append('rect')  
-  		.attr('x', d => xScale(xValue(d)))
-  		.attr('height', d => yScale(yValue(d)))
-  		.attr('width', xScale.bandwidth())
-        
+
+    g.selectAll('rect')
+        .data(data)
+        .enter()
+        .append('rect')
+        .attr('x', d => xScale(xValue(d)))
+        .attr('height', d => yScale(yValue(d)))
+        .attr('width', xScale.bandwidth())
 }
 
 csv('data.csv').then(data => {
@@ -37,6 +38,5 @@ csv('data.csv').then(data => {
         d.total = +d.total
     })
     render(data)
-    console.log(data)
+    // console.log(data)
 })
-
