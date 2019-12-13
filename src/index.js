@@ -1,4 +1,9 @@
-import * as d3 from 'd3';
+import { csv } from 'd3';
 
-const square = d3.selectAll("rect")
-square.style("fill", "orange")
+csv('data.csv').then(data => {
+    data.forEach(d => {
+        d.total = +d.total
+    })
+    // render(data)
+    console.log(data)
+})
