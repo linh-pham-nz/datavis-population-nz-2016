@@ -25,11 +25,8 @@ const render = data => {
 
     const g = svg.append('g')
         .attr('transform', `translate(${margin.left}, ${margin.top})`)
-
-    g.append('g').call(axisLeft(yScale))
     
     const xAxis = axisBottom(xScale)
-        // .tickSize(-innerHeight)
         .tickPadding(5)
         
     const xAxisG = g.append('g')
@@ -42,6 +39,13 @@ const render = data => {
         .attr('fill', 'black')
         .attr('font-size', 30)
         .text(xAxisLabel)
+    
+    const yAxis = axisLeft(yScale)
+        .tickSize(-innerWidth)
+        .tickPadding(5)
+    
+    const yAxisG = g.append('g')
+        .call(yAxis)
 
     g.selectAll('circle')
         .data(data)
