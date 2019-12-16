@@ -10,6 +10,8 @@ const render = data => {
     const xAxisLabel = 'Age Group'
 
     const yValue = d => d.total
+    const yAxisLabel = 'Population'
+
     const margin = { top: 40, right: 40, bottom: 100, left: 100 }
     const innerWidth = width - margin.left - margin.right
     const innerHeight = height - margin.top - margin.bottom
@@ -46,6 +48,16 @@ const render = data => {
     
     const yAxisG = g.append('g')
         .call(yAxis)
+    
+    yAxisG.append('text')
+        .attr('x', -40)
+        .attr('y', innerHeight/2)
+        .attr('fill', 'black')
+        .attr('font-size', 30)
+        .attr('transform', 'rotate(-90)')
+        // .attr('text-anchor', 'middle')
+        .text(yAxisLabel)
+        
 
     g.selectAll('circle')
         .data(data)
