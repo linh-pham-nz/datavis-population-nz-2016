@@ -8,7 +8,7 @@ const height = +svg.attr('height')
 const render = data => {
     const xValue = d => d.ageGroup
     const yValue = d => d.total
-    const margin = { top: 40, right: 40, bottom: 40, left: 40 }
+    const margin = { top: 40, right: 40, bottom: 40, left: 100 }
     const innerWidth = width - margin.left - margin.right
     const innerHeight = height - margin.top - margin.bottom
 
