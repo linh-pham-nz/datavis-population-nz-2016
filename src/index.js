@@ -50,12 +50,12 @@ const render = data => {
         .call(yAxis)
     
     yAxisG.append('text')
-        .attr('x', -40)
-        .attr('y', innerHeight/2)
+        .attr('y', -60)
+        .attr('x', -innerHeight/2)
         .attr('fill', 'black')
         .attr('font-size', 30)
         .attr('transform', 'rotate(-90)')
-        // .attr('text-anchor', 'middle')
+        .attr('text-anchor', 'middle')
         .text(yAxisLabel)
         
 
