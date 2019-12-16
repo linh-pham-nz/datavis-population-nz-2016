@@ -19,7 +19,7 @@ const render = data => {
 
     const yScale = scaleLinear()
         .domain([0, max(data, yValue)])
-        .range([0, innerHeight])
+        .range([innerHeight, 0])
 
     const g = svg.append('g')
         .attr('transform', `translate(${margin.left}, ${margin.top})`)
