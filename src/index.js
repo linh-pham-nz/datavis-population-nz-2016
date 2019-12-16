@@ -15,17 +15,23 @@ const render = data => {
     const xScale = scaleBand()
         .domain(data.map(xValue))
         .range([0, innerWidth])
-        .padding(0.1)
 
     const yScale = scaleLinear()
         .domain([0, max(data, yValue)])
         .range([innerHeight, 0])
+        .nice()
 
     const g = svg.append('g')
         .attr('transform', `translate(${margin.left}, ${margin.top})`)
 
     g.append('g').call(axisLeft(yScale))
-    g.append('g').call(axisBottom(xScale))
+    
+    const xAxis = axisBottom(xScale)
+        .tickSize(-innerHeight)
+        .tickPadding(10)
+        
+    const xAxisG = g.append('g')
+        .call(xAxis)
         .attr('transform', `translate(0, ${innerHeight})`)
 
     g.selectAll('circle')
