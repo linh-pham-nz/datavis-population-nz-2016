@@ -24,15 +24,15 @@ const render = data => {
     const g = svg.append('g')
         .attr('transform', `translate(${margin.left}, ${margin.top})`)
 
-    g.selectAll('rect')
+    g.selectAll('circle')
         .data(data)
         .enter()
-        .append('rect')
-        .attr('x', d => xScale(xValue(d)))
-        .attr('height', d => yScale(yValue(d)))
-        .attr('width', xScale.bandwidth())
-        .attr("fill", "steelblue")
-}
+        .append('circle')
+            .attr('cx', d => xScale(xValue(d)))
+            .attr('cy', d => yScale(yValue(d)))
+            .attr('r', 5)
+            .attr("fill", "steelblue")
+    }
 
 csv('data.csv').then(data => {
     data.forEach(d => {
