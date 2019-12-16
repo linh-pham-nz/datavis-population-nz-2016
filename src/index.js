@@ -31,6 +31,7 @@ const render = data => {
         .attr('x', d => xScale(xValue(d)))
         .attr('height', d => yScale(yValue(d)))
         .attr('width', xScale.bandwidth())
+        .attr("fill", "steelblue")
 }
 
 csv('data.csv').then(data => {
