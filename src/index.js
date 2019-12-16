@@ -1,4 +1,4 @@
-import { select, csv, scaleBand, scaleLinear, max } from 'd3';
+import { select, csv, scaleBand, scaleLinear, max, axisLeft, axisBottom } from 'd3';
 
 const svg = select('svg')
 
@@ -23,6 +23,10 @@ const render = data => {
 
     const g = svg.append('g')
         .attr('transform', `translate(${margin.left}, ${margin.top})`)
+
+    g.append('g').call(axisLeft(yScale))
+    g.append('g').call(axisBottom(xScale))
+        .attr('transform', `translate(0, ${innerHeight})`)
 
     g.selectAll('circle')
         .data(data)
